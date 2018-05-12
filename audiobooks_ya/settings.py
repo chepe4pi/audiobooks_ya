@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +35,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'abook_generating',
+    'constance',
+    'constance.backends.database',
+
 ]
+
+CONSTANCE_CONFIG = {
+    'KEY': ('069b6659-984b-4c5f-880e-aaedcfd84102', 'Yandex ARS key'),
+    'SPEAKERS': (
+        "valtz.us, valtz, levitan, ermilov, zahar, silaerkan, oksana, jane, omazh, kolya, kostya, nastya, sasha, nick, "
+        "erkanyavas, zhenya, tanya, ermil, anton_samokhvalov, tatyana_abramova, alyss",
+        'Speakers')
+}
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'audiobooks_ya.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -79,7 +90,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -99,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -113,8 +122,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DEFAULT_SPEAKER = 'ermilov'
+
+DROPBOX_DIR = '/home/web/dropbox/'

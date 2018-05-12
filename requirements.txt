@@ -1,1 +1,4 @@
 Django=2.0.5
+django-constance[database]==2.2.0
+celery==4.1.0
+python-slugify==1.2.5
